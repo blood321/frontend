@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import VideosList from './components/Videos/VideosList';
+import VideoForm from './components/Videos/VideoForm';
+import 'bootswatch/dist/pulse/bootstrap.min.css'
+import Navbar from './components/Navbar/Navbar';
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Navbar/>
+      <div className="container p-4">
+        <Routes>
+          <Route path="/" element={<VideosList/>}/>
+          <Route path="/new-video" element={<VideoForm/>}/>
+          <Route path="/update/:id" element={<VideoForm/>}/>
+        </Routes>
+        <ToastContainer/>
+      </div>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
