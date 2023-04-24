@@ -21,7 +21,7 @@ const VideoItem = ({ video, loadVideos }: Props) => {
   return (
     <div className="col-md-4">
       <div
-        className="card card-body video-card"
+        className="card card-body video-card shadow p-3 mb-5 bg-body rounded-3"
         style={{ cursor: "pointer" }}
       >
         <div className="d-flex justify-content-between">
@@ -29,7 +29,7 @@ const VideoItem = ({ video, loadVideos }: Props) => {
           onClick={() => navigate(`/update/${video._id}`)}
           >{video.title}</h1>
           <span className="text-danger" onClick={() => video._id && handleDelete(video._id)}>
-            X
+            <button type="button" className="btn-close" aria-label="Close"></button>
           </span>
         </div>
         <div className="player-wrapper">
